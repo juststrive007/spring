@@ -17,11 +17,16 @@ public class Demo {
 		Date date = (Date) ac.getBean("date");
 		User user = (User) ac.getBean("user");
 		Calendar cal = (Calendar) ac.getBean("calendar");
-		
+
+		Person person=(Person) ac.getBean("person");
+
+		UserDao userDao=(UserDao) ac.getBean("userDao");
 		// 3. 测试获取的对象
 		System.out.println(date);
 		System.out.println(user);
 		System.out.println(cal);
+		System.out.println(person);
+		System.out.println(userDao);
 		
 		// 4. 释放资源
 		ac.close();

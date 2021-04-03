@@ -24,20 +24,8 @@
 	<!-- 需要获取Date类的对象 -->
 	<!-- id属性：名称，后续将根据这个名称获取对象 -->
 	<!-- class属性：创建哪个类的对象 -->
-	<bean id="date" class="java.util.Date"></bean>
 	<bean id="user" class="cn.study.spring.User"></bean>
 	
-	<!-- 2. 通过静态工厂方法创建对象 -->
-	<!-- factory-method属性：工厂方法的名称 -->
-	<bean id="calendar" class="java.util.Calendar"
-		factory-method="getInstance"></bean>
-	<bean id="person" class="cn.study.spring.Person"
-		  factory-method="newInstance"></bean>
-
-	<!--3 通过实例工厂方法创建对象-->
-	<bean id="userDaoFactory" class="cn.study.spring.UserDaoFactory"></bean>
-	<bean id="userDao" class="cn.study.spring.UserDao" factory-bean="userDaoFactory"
-	factory-method="newInstance"></bean>
 </beans>
 
 

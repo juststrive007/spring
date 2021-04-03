@@ -31,7 +31,13 @@
 	<!-- factory-method属性：工厂方法的名称 -->
 	<bean id="calendar" class="java.util.Calendar"
 		factory-method="getInstance"></bean>
-	
+	<bean id="person" class="cn.study.spring.Person"
+		  factory-method="newInstance"></bean>
+
+	<!--3 通过实例工厂方法创建对象-->
+	<bean id="userDaoFactory" class="cn.study.spring.UserDaoFactory"></bean>
+	<bean id="userDao" class="cn.study.spring.UserDao" factory-bean="userDaoFactory"
+	factory-method="newInstance"></bean>
 </beans>
 
 
