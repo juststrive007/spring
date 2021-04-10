@@ -22,6 +22,39 @@
 
 	<context:component-scan base-package="cn.study.spring"/>
 
+	<!-- 组件扫描 -->
+	<context:component-scan
+			base-package="cn.study.spring" />
+
+	<!-- 配置模版解析器 -->
+	<bean id="templateResolver"
+		  class=" org.thymeleaf.templateresolver.ClassLoaderTemplateResolver">
+		<!-- 前缀 -->
+		<property name="prefix" value="/web/" />
+		<!-- 后缀 -->
+		<property name="suffix" value=".html" />
+		<!-- 字符编码 -->
+		<property name="characterEncoding" value="UTF-8" />
+		<!-- 模版模式 -->
+		<property name="templateMode" value="HTML" />
+		<!-- 是否缓存 -->
+		<property name="cacheable" value="false" />
+	</bean>
+
+	<!-- 配置模版引擎 -->
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+		<!-- 模版解析器 -->
+		<property name="templateResolver" ref="templateResolver" />
+	</bean>
+
+	<!-- 配置视图解析器：ThymeleafViewResolver -->
+	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+		<!-- 模版引擎 -->
+		<property name="templateEngine" ref="templateEngine" />
+		<!-- 字符编码 -->
+		<property name="characterEncoding" value="UTF-8" />
+	</bean>
+
 
 </beans>
 
