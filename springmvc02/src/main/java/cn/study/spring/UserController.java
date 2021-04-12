@@ -1,6 +1,7 @@
 package cn.study.spring;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -13,7 +14,7 @@ public class UserController {
     }
 
     @RequestMapping("handle_reg.do")
-    public String handleReg(User user ,String code) {
+    public String handleReg(User user, String code) {
 //        System.out.println("UserController.handel_reg()");
 //        System.out.println("username:" + user.getUsername());
 //        System.out.println("password:" + user.getPassword());
@@ -28,7 +29,7 @@ public class UserController {
 //            System.out.println("skill[" + i + "]:" + skill[i]);
 //        }
         System.out.println(user);
-        System.out.println("code:"+code);
+        System.out.println("code:" + code);
         return "regdone";
     }
 
@@ -46,10 +47,31 @@ public class UserController {
      * @return
      */
     @RequestMapping("handleLogin.do")
-    public String handleLogin(String username, String password) {
+    public String handleLogin(String username, String password, ModelMap modelMap) {
         System.out.println("UserController.handelLogin()");
         System.out.println("username:" + username);
         System.out.println("password:" + password);
+
+        //假定root/1234是正确的用户名/密码
+
+        if ("root".equals(username)) {
+            if ("1234".equals(password)) {
+                //登录成功
+                System.out.println("登录成功");
+            } else {
+                //密码错误
+                System.out.println("密码错误");
+                modelMap.addAttribute("errormessage","密码错误");
+                return "error";
+            }
+
+        } else {
+            //用户名错误
+            System.out.println("用户名不存在");
+            modelMap.addAttribute("errormessage","用户名不存在");
+            return "error";
+
+        }
 
         return "logindone";
     }
