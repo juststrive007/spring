@@ -2,7 +2,11 @@ package cn.study.spring;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.HttpSessionRequiredException;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class UserController {
@@ -30,7 +34,7 @@ public class UserController {
 //        }
         System.out.println(user);
         System.out.println("code:" + code);
-        return "regdone";
+        return "redirect:login.do";
     }
 
     @RequestMapping("login.do")
@@ -42,12 +46,12 @@ public class UserController {
     /**
      * 注意：连接URL必须是以.do 结尾，应为配置的dispatchslevlet处理 xxx.do请求
      *
-     * @param username
-     * @param password
-     * @return
+     * @param username 用户名
+     * @param password 密码
+     * @return 返回值
      */
     @RequestMapping("handleLogin.do")
-    public String handleLogin(String username, String password, ModelMap modelMap) {
+    public String handleLogin(@RequestParam(name="username",required = true,defaultValue = "admin") String username, String password, ModelMap modelMap, HttpSession session) {
         System.out.println("UserController.handelLogin()");
         System.out.println("username:" + username);
         System.out.println("password:" + password);
@@ -58,6 +62,8 @@ public class UserController {
             if ("1234".equals(password)) {
                 //登录成功
                 System.out.println("登录成功");
+                session.setAttribute("username",username);
+                session.setAttribute("password",password);
             } else {
                 //密码错误
                 System.out.println("密码错误");
@@ -73,6 +79,17 @@ public class UserController {
 
         }
 
-        return "logindone";
+        return "redirect: index1.do";
+    }
+
+
+    @RequestMapping("index1.do")
+    public String handleindex(HttpSession session){
+//        if(session.getAttribute("username")==null){
+//            return "redirect:/login.do";
+//        }
+        System.out.println("session.uname:"+session.getAttribute("username"));
+        System.out.println("session.password:"+session.getAttribute("password"));
+        return "index";
     }
 }

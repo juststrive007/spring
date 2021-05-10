@@ -4,6 +4,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
+/**
+ * @author wm
+ */
 @Component
 public class User {
     private String username;
