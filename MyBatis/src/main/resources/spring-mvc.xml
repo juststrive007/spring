@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+<!--
+
+	<context:component-scan base-package="cn.study.spring"/>
+	&lt;!&ndash; 配置模版解析器 &ndash;&gt;
+	<bean id="templateResolver"
+		  class=" org.thymeleaf.templateresolver.ClassLoaderTemplateResolver">
+		&lt;!&ndash; 前缀 &ndash;&gt;
+		<property name="prefix" value="/web/" />
+		&lt;!&ndash; 后缀 &ndash;&gt;
+		<property name="suffix" value=".html" />
+		&lt;!&ndash; 字符编码 &ndash;&gt;
+		<property name="characterEncoding" value="UTF-8" />
+		&lt;!&ndash; 模版模式 &ndash;&gt;
+		<property name="templateMode" value="HTML" />
+		&lt;!&ndash; 是否缓存 &ndash;&gt;
+		<property name="cacheable" value="false" />
+	</bean>
+
+	&lt;!&ndash; 配置模版引擎 &ndash;&gt;
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+		&lt;!&ndash; 模版解析器 &ndash;&gt;
+		<property name="templateResolver" ref="templateResolver" />
+	</bean>
+
+	&lt;!&ndash; 配置视图解析器：ThymeleafViewResolver &ndash;&gt;
+	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+		&lt;!&ndash; 模版引擎 &ndash;&gt;
+		<property name="templateEngine" ref="templateEngine" />
+		&lt;!&ndash; 字符编码 &ndash;&gt;
+		<property name="characterEncoding" value="UTF-8" />
+	</bean>
+	&lt;!&ndash;配置拦截器链&ndash;&gt;
+	<mvc:interceptors>
+		&lt;!&ndash;配置第1个拦截器&ndash;&gt;
+		<mvc:interceptor>
+			&lt;!&ndash;拦截路径&ndash;&gt;
+			<mvc:mapping path="**" />
+			&lt;!&ndash;<mvc:mapping path="index.do" />&lt;!&ndash;&ndash;&gt;&ndash;&gt;
+			&lt;!&ndash;拦截器类&ndash;&gt;
+			<bean class="cn.study.MyBatis.LoginInterceptor"> </bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+-->
+
+	<!--配置第1个拦截器-->
+	<!--配置第2个拦截器-->
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
