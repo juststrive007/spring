@@ -49,6 +49,20 @@
 		<!-- 字符编码 -->
 		<property name="characterEncoding" value="UTF-8" />
 	</bean>
+	<!--配置拦截器链-->
+	<mvc:interceptors>
+		<!--配置第1个拦截器-->
+		<mvc:interceptor>
+			<!--拦截路径-->
+			<mvc:mapping path="**" />
+			<!--<mvc:mapping path="index.do" />&lt;!&ndash;&ndash;&gt;-->
+			<!--拦截器类-->
+			<bean class="cn.study.spring.LoginInterceptor"> </bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!--配置第1个拦截器-->
+	<!--配置第2个拦截器-->
 
 </beans>
 
