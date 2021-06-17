@@ -24,4 +24,6 @@ public interface UserMapper {
 
     User findOld();
 
+    UserVO findVOByid(Integer id);
+
 }

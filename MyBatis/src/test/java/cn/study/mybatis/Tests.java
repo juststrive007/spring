@@ -92,7 +92,11 @@ public class Tests {
         System.out.println(olduser);
     }
 
-
+    @Test
+    public void findVOById(){
+        UserVO userVO = userMapper.findVOByid(1);
+        System.out.println(userVO);
+    }
 
     @Before
     public void doBefore(){
