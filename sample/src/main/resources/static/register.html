@@ -76,7 +76,7 @@ function reg() {
 		"type" : "post",
 		"dataType" : "json",
 		"success" : function(arg) {
-			if (arg.state == 1) {
+			if (arg.code == 1) {
 				alert("注册成功！");
 			} else {
 				alert("注册失败！" + arg.message + "！");
