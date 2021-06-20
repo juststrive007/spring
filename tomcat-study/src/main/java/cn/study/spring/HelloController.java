@@ -11,6 +11,5 @@ public class HelloController {
     public String showHello(){
         System.out.println("HelloController.showHello()");
         return "welcome";
-
     }
 }
