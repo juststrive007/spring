@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!---->
+<mapper namespace="cn.study.mybatis.DepartmentMapper">
+    <!--id属性：对应抽象方法的名称-->
+    <resultMap id="DepartmentVOMap" type="cn.study.mybatis.DepartmentVO">
+        <id column="did" property="id"/>
+        <result column="name" property="name"/>
+        <!--collection节点: 配置1对多关系的（list集合类型）的属性-->
+        <!--oftype属性：集合中的元素类型-->
+        <collection property="users" ofType="cn.study.mybatis.User">
+            <id column="id" property="id"/>
+            <result column="username" property="username"/>
+            <result column="password" property="password"/>
+            <result column="age" property="age"/>
+            <result column="phone" property="phone"/>
+            <result column="email" property="email"/>
+            <result column="is_delete" property="isDelete"/>
+            <result column="department_id" property="departmentId"/>
+
+        </collection>
+    </resultMap>
+    <select id="fineVOById" resultMap="DepartmentVOMap">
+        SELECT t_department.id AS did,t_department.name,t_user.* FROM
+        t_department LEFT JOIN t_user ON t_department.id = t_user.department_id where
+        t_department.id=#{id}
+    </select>
+</mapper>

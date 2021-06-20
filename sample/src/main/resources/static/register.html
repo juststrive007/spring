@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户注册</title>
+<style type="text/css">
+.table, .table td {
+	border: 1px solid #aaa;
+	border-collapse: collapse;
+}
+.table td {
+	padding: 5px 8px;
+}
+</style>
+</head>
+<body>
+<h1>用户注册</h1>
+<form id="form-reg" action="handle_reg.do" method="get">
+<table class="table">
+	<tr>
+		<td>用户名</td>
+		<td><input name="username" /></td>
+	</tr>
+	<tr>
+		<td>密码</td>
+		<td><input name="password" /></td>
+	</tr>
+	<tr>
+		<td>性别</td>
+		<td>
+			<input type="radio" name="gender" value="male" />男
+			<input type="radio" name="gender" value="female" />女
+		</td>
+	</tr>
+	<tr>
+		<td>年龄</td>
+		<td><input name="age" /></td>
+	</tr>
+	<tr>
+		<td>手机号码</td>
+		<td><input name="phone" /></td>
+	</tr>
+	<tr>
+		<td>邮箱</td>
+		<td><input name="email" /></td>
+	</tr>
+	<tr>
+		<td>专业技能</td>
+		<td>
+			<input type="checkbox" name="skill" value="Java OOP" />Java OOP
+			<input type="checkbox" name="skill" value="Java SE" />Java SE
+			<input type="checkbox" name="skill" value="MySQL" />MySQL
+			<input type="checkbox" name="skill" value="JDBC" />JDBC
+			<input type="checkbox" name="skill" value="Java EE" />Java EE
+		</td>
+	</tr>
+	<tr>
+		<td>验证码</td>
+		<td><input name="code" /></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input onclick="reg()" type="button" value="注册" />
+		</td>
+	</tr>
+</table>
+</form>
+<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+function reg() {
+	alert("准备注册……");
+	$.ajax({
+		// 请求路径中，使用 / 作为第1个字符，表示绝对路径，从端口号右侧的 / 再往右拼接所写的路径
+		"url" : "/user/reg",
+		"data" : $("#form-reg").serialize(),
+		"type" : "post",
+		"dataType" : "json",
+		"success" : function(arg) {
+			if (arg.state == 1) {
+				alert("注册成功！");
+			} else {
+				alert("注册失败！" + arg.message + "！");
+			}
+		}
+	});
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
